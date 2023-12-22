@@ -1,4 +1,4 @@
-import { Box, Flex, Input, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Input, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
 export const DynamicNav = () => {
@@ -17,7 +17,7 @@ export const DynamicNav = () => {
   return (
     <Flex
       alignItems="center"
-      justifyContent=""
+      justifyContent="center"
       gap={5}
       boxShadow="0px 4px 8px 0px rgba(0, 0, 0, 0.02);"
       backgroundColor="#fff"
@@ -35,8 +35,18 @@ export const DynamicNav = () => {
             key={navIndex}
             _hover={{ background: "#F5F5F5" }}
           >
-            <img src={nav.icon} alt={`${nav.name}icon`} />
+            <img className="navImg" src={nav.icon} alt={`${nav.name}icon`} />
             <Text
+              display={{
+                base: "block",
+                lg: "block",
+                md: "none",
+                // sm: "none",
+              }}
+              fontSize={{
+                lg: "inherit",
+                sm: "13px",
+              }}
               fontWeight={nav.isActive ? "600" : "400"}
               color={nav.isActive ? "#191919" : "#3D3D3D"}
             >
@@ -52,6 +62,12 @@ export const DynamicNav = () => {
         px={3}
         gap={2}
         flex={1}
+        display={{
+          base: "none",
+          lg: "flex",
+          md: "none",
+          sm: "none",
+        }}
         background={"#F5F5F5"}
         border={"1px solid #E4E4E4"}
       >
